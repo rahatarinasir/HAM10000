@@ -1,0 +1,24 @@
+Description
+	
+
+Training of neural networks for automated diagnosis of pigmented skin lesions is hampered by the small size and lack of diversity of available dataset of dermatoscopic images. We tackle this problem by releasing the HAM10000 ("Human Against Machine with 10000 training images") dataset. We collected dermatoscopic images from different populations, acquired and stored by different modalities. The final dataset consists of 10015 dermatoscopic images which can serve as a training set for academic machine learning purposes. Cases include a representative collection of all important diagnostic categories in the realm of pigmented lesions: Actinic keratoses and intraepithelial carcinoma / Bowen's disease (akiec), basal cell carcinoma (bcc), benign keratosis-like lesions (solar lentigines / seborrheic keratoses and lichen-planus like keratoses, bkl), dermatofibroma (df), melanoma (mel), melanocytic nevi (nv) and vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage, vasc).
+
+More than 50% of lesions are confirmed through histopathology (histo), the ground truth for the rest of the cases is either follow-up examination (follow_up), expert consensus (consensus), or confirmation by in-vivo confocal microscopy (confocal). The dataset includes lesions with multiple images, which can be tracked by the lesion_id-column within the HAM10000_metadata file.
+
+Due to upload size limitations, images are stored in two files:
+
+    HAM10000_images_part1.zip (5000 JPEG files)
+    HAM10000_images_part2.zip (5015 JPEG files)
+
+Additional data for evaluation purposes
+The HAM10000 dataset served as the training set for the ISIC 2018 challenge (Task 3). The test-set images are available herein as ISIC2018_Task3_Test_Images.zip (1511 images), the official validation-set is available through the challenge website https://challenge2018.isic-archive.com/. The ISIC-Archive also provides a "Live challenge" submission site for continuous evaluation of automated classifiers on the official validation- and test-set.
+
+Comparison to physicians
+Test-set evaluations of the ISIC 2018 challenge were compared to physicians on an international scale, where the majority of challenge participants outperformed expert readers: Tschandl P. et al., Lancet Oncol 2019
+
+Human-computer collaboration
+The test-set images were also used in a study comparing different methods and scenarios of human-computer collaboration: Tschandl P. et al., Nature Medicine 2020
+Following corresponding metadata is available herein:
+
+    ISIC2018_Task3_Test_NatureMedicine_AI_Interaction_Benefit.csv: Human ratings for Test images with and without interaction with a ResNet34 CNN (Malignancy Probability, Multi-Class probability, CBIR) or Human-Crowd Multi-Class probabilities. This is data was collected for and analyzed in Tschandl P. et al., Nature Medicine 2020, therefore please refer to this publication when using the data.
+    HAM10000_segmentations_lesion_tschandl.zip: To evaluate regions of CNN activations in Tschandl P. et al., Nature Medicine 2020 (please refer to this publication when using the data), a single dermatologist (Tschandl P) created binary segmentation masks for all 10015 images from the HAM10000 dataset. Masks were initialized with the segmentation network as described by Tschandl et al., Computers in Biology and Medicine 2019, and following verified, corrected or replaced via the free-hand selection tool in FIJI.
